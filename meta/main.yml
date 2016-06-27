@@ -1,0 +1,21 @@
+---
+galaxy_info:
+  author: Wesley Tanaka
+  description: Install docker on ubuntu
+  company: http://wtanaka.com
+  license: GPLv2
+  min_ansible_version: 1.5.4
+  platforms:
+    - name: Ubuntu
+      versions:
+      - precise
+      - trusty
+      - wily
+      - xenial
+    - name: Debian
+      versions:
+      - jessie
+  categories:
+  - docker
+  - system
+dependencies: []
