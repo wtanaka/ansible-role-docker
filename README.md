@@ -1,3 +1,7 @@
+[![Build
+Status](https://travis-ci.org/wtanaka/ansible-role-docker.svg?branch=master)](https://travis-ci.org/wtanaka/ansible-role-docker)
+[![CircleCI](https://circleci.com/gh/wtanaka/ansible-role-docker.svg?style=svg)](https://circleci.com/gh/wtanaka/ansible-role-docker)
+
 wtanaka.docker
 ==============
 
