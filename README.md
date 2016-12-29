@@ -12,7 +12,9 @@ Example Playbook
 
     - hosts: all
       roles:
-        - { role: wtanaka.docker, docker_users: ['myusername'] }
+        - role: wtanaka.docker
+          docker_users:
+          - 'myusername'
 
 
 Author Information
