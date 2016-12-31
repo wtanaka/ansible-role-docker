@@ -1,6 +1,6 @@
 ---
 - name: add docker key to apt-key
-  apt_key: file=/root/docker.gpg
+  apt_key: file=/root/2C52609D.gpg
   sudo: yes
 
 - name: apt-get update
