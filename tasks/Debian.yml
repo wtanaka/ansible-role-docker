@@ -5,6 +5,8 @@
 
 - name: apt-get update
   apt: update_cache=true cache_valid_time=3600
+  register: result_aptget_update
+  until: result_aptget_update|success
   sudo: yes
 
 - name: install https apt transport and certificates
@@ -12,6 +14,8 @@
   with_items:
   - apt-transport-https
   - ca-certificates
+  register: result_apt_certificates
+  until: result_apt_certificates|success
   sudo: yes
 
 - name: docker sources.list
@@ -21,6 +25,8 @@
 
 - name: apt-get update
   apt: update_cache=true cache_valid_time=0
+  register: result_aptget_update_again
+  until: result_aptget_update_again|success
   when: sources_list_result.changed
   sudo: yes
 
