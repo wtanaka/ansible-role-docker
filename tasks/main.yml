@@ -1,21 +1,7 @@
 ---
-- include: compat.yml
+- name: set should_run fact
+  set_fact:
+    should_run: True
 
 - include: include_vars.yml
-
-- name: download docker key
-  command: >
-    wget -O /root/2C52609D.gpg https://yum.dockerproject.org/gpg
-  args:
-    creates: /root/2C52609D.gpg
-  sudo: yes
-
-- include: Debian.yml
-  when: ansible_os_family == 'Debian'
-
-- include: install_package_names.yml
-
-- name: add docker group to users
-  user: name={{ item }} groups=docker append=yes
-  with_items: '{{docker_users}}'
-  sudo: yes
+- include: sudoorbecome.yml
