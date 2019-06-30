@@ -1,0 +1,5 @@
+---
+- name: add docker group to users
+  user: name={{ item }} groups=docker append=yes
+  with_items: '{{docker_users}}'
+  sudo: yes

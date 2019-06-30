@@ -1,11 +1,13 @@
 ---
 - name: add docker key to apt-key
   apt_key: file=/root/{{key_local_name}}
+  sudo: yes
 
 - name: apt-get update
   apt: update_cache=true cache_valid_time=3600
   register: result_aptget_update
   until: result_aptget_update|success
+  sudo: yes
 
 - name: install https apt transport and certificates
   apt: name={{ item }}
@@ -14,16 +16,20 @@
   - ca-certificates
   register: result_apt_certificates
   until: result_apt_certificates|success
+  sudo: yes
 
 - name: docker sources.list
   template: src=docker.list.j2 dest=/etc/apt/sources.list.d/docker.list
   register: sources_list_result
+  sudo: yes
 
 - name: apt-get update
   apt: update_cache=true cache_valid_time=0
   register: result_aptget_update_again
   until: result_aptget_update_again|success
   when: sources_list_result.changed
+  sudo: yes
 
 - name: Remove lxc-docker if exists
   apt: name=lxc-docker state=absent
+  sudo: yes

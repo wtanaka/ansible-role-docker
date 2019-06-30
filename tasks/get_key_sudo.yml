@@ -1,0 +1,7 @@
+---
+- name: download key
+  command: >
+    wget -O /root/{{key_local_name}} {{key_url}}
+  args:
+    creates: /root/{{key_local_name}}
+  sudo: yes

@@ -1,2 +1,4 @@
 ---
 docker_users: []
+key_local_name: 2C52609D.gpg
+key_url: https://yum.dockerproject.org/gpg
